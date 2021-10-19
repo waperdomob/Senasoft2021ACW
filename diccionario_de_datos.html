@@ -65,6 +65,7 @@
 <li><a href='#bugs'>bugs</a></li>
 <li><a href='#cards'>cards</a></li>
 <li><a href='#categories'>categories</a></li>
+<li><a href='#games'>games</a></li>
 </ul>
 <table id='Users'>
 <caption>Users</caption>
@@ -162,6 +163,7 @@
     <td class='attr'>&nbsp;</td>
     <td></td>
     <td>Id del bug generado</td>
+
 </tr>
 <tr>
     <td>name</td>
@@ -175,6 +177,7 @@
     <td class='attr'>&nbsp;</td>
     <td></td>
     <td>Nombre del bug generado</td>
+
 </tr>
 <table id='cards'>
 <caption>cards</caption>
@@ -204,6 +207,7 @@
     <td>&#10004;</td>
     <td></td>
     <td>Id de la carta</td>
+
 </tr>
 <tr>
     <td>name</td>
@@ -217,6 +221,7 @@
     <td class='attr'>&nbsp;</td>
     <td></td>
     <td>Id de la carta</td>
+
 </tr>
 <tr>
     <td>category_id</td>
@@ -256,6 +261,19 @@
     <td class='attr'>&nbsp;</td>
     <td></td>
     <td>Bug asociado a la carta</td>
+</tr>
+<tr>
+    <td>games_id</td>
+    <td>VARCHAR(5)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Juego asociado a las cartas</td>
 </tr>
 <table id='categories'>
 <caption>categories</caption>
@@ -298,6 +316,48 @@
     <td class='attr'>&nbsp;</td>
     <td></td>
     <td>Nombre de la categoria</td>
+</tr>
+<table id='games'>
+<caption>games</caption>
+<tr><td colspan='11'></td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>id</td>
+    <td>VARCHAR(5)</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Id del juego</td>
+</tr>
+<tr>
+    <td>count</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Contador de los jugadores</td>
 </tr>
 </table>
 </body>
