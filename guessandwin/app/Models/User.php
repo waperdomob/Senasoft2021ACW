@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'game_id'
     ];
 
     /**
@@ -59,6 +60,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    
     public function card()
      {
         return $this->hasMany(Card::class,'user_id');
