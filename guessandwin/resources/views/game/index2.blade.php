@@ -11,6 +11,7 @@
 </div>
 @endif 
 <div class="container">
+    {{-- <h1>{{baraja()}}</h1> --}}
     <form action="{{route('game.store2')}}" method="post">
         @csrf 
         <div class="form-group">
