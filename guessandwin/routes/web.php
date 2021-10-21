@@ -28,6 +28,15 @@ Route::get('/games', function () {
 Route::get('/turno', function () {
     return view('cards.index2');
 });
+
+
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+
 Route::group( ['middleware'=>'auth'],function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
