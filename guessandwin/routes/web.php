@@ -25,6 +25,14 @@ Route::get('/games', function () {
     return view('layouts.plantilla.newgame');
 });
 
+Route::get('/games', function () {
+    return view('games.index');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 Route::group( ['middleware'=>'auth'],function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -35,5 +43,6 @@ Route::resource('game', GameController::class)->names('game');
 Route::post('game/store2', [GameController::class,'store2'])->name('game.store2');
 
 Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
