@@ -8,7 +8,6 @@ use App\Models\Game;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Helpers;
 
 class GameController extends Controller
 {
@@ -50,7 +49,7 @@ class GameController extends Controller
         }
         else{
             Game::insert($datos);
-            User::where('id','=',$id_user)->uwhere('id','=',$id_user)->update(['game_id' => $game_id]);
+            User::where('id','=',$id_user)->where('id','=',$id_user)->update(['game_id' => $game_id]);
             
             return [$datos,$id_user,$game_id];
         }

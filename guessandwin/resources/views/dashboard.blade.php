@@ -1,6 +1,7 @@
     
-    @extends('layouts.app')
-    @section('title', 'Home!!')
+@extends('layouts.plantilla.newgame')
+
+@section('title', 'Home!!')
     @section('content')
         
         <div class="container">
