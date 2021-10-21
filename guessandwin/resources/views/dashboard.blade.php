@@ -2,7 +2,7 @@
 @extends('layouts.plantilla.newgame')
 
 @section('title', 'Home!!')
-    @section('content')
+    @section('componentes')
         
         <div class="container">
             <a href="{{ route('game.create')}}" class="btn btn-primary">Cree una nueva partida</a><br>

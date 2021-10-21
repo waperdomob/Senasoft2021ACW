@@ -1,3 +1,4 @@
+
 <header class="header header-sticky mb-4">
             <div class="container-fluid">
                 <button class="header-toggler px-md-0 me-md-3" type="button"
@@ -43,9 +44,7 @@
                                 class="dropdown-item" href="#">
                                 <div class="message">
                                     <div class="py-3 me-3 float-start">
-                                        <div class="avatar"><img class="avatar-img" src="assets/img/avatars/7.jpg"
-                                                alt="user@email.com"><span class="avatar-status bg-success"></span>
-                                        </div>
+                                        
                                     </div>
                                     <div><small class="text-medium-emphasis">John Doe</small><small
                                             class="text-medium-emphasis float-end mt-1">Just now</small></div>
@@ -56,11 +55,7 @@
                                 </div>
                             </a><a class="dropdown-item" href="#">
                                 <div class="message">
-                                    <div class="py-3 me-3 float-start">
-                                        <div class="avatar"><img class="avatar-img" src="assets/img/avatars/6.jpg"
-                                                alt="user@email.com"><span class="avatar-status bg-warning"></span>
-                                        </div>
-                                    </div>
+                                    
                                     <div><small class="text-medium-emphasis">John Doe</small><small
                                             class="text-medium-emphasis float-end mt-1">5 minutes ago</small></div>
                                     <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
@@ -70,8 +65,7 @@
                             </a><a class="dropdown-item" href="#">
                                 <div class="message">
                                     <div class="py-3 me-3 float-start">
-                                        <div class="avatar"><img class="avatar-img" src="assets/img/avatars/5.jpg"
-                                                alt="user@email.com"><span class="avatar-status bg-danger"></span></div>
+                                        
                                     </div>
                                     <div><small class="text-medium-emphasis">John Doe</small><small
                                             class="text-medium-emphasis float-end mt-1">1:52 PM</small></div>
@@ -81,10 +75,7 @@
                                 </div>
                             </a><a class="dropdown-item" href="#">
                                 <div class="message">
-                                    <div class="py-3 me-3 float-start">
-                                        <div class="avatar"><img class="avatar-img" src="assets/img/avatars/4.jpg"
-                                                alt="user@email.com"><span class="avatar-status bg-info"></span></div>
-                                    </div>
+                                    
                                     <div><small class="text-medium-emphasis">John Doe</small><small
                                             class="text-medium-emphasis float-end mt-1">4:03 PM</small></div>
                                     <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
@@ -100,8 +91,7 @@
                     <li class="nav-item dropdown d-flex align-items-center"><a class="nav-link py-0"
                             data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                             aria-expanded="false">
-                            <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/8.jpg"
-                                    alt="user@email.com"></div>
+                            <div class="avatar avatar-md"><h5>Name</h5></div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end pt-0">
                             

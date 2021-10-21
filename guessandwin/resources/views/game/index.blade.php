@@ -1,5 +1,5 @@
 @extends('layouts.plantilla.newgame')
-@section('content')
+@section('componentes')
     @if (Session::has('mensaje'))
     <div class="alert alert-primary alert-dismissible" role="alert">
         {{  Session::get('mensaje') }}
