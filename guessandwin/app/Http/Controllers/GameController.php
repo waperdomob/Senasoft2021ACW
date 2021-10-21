@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Card;
 use App\Models\Game;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Helpers;
 
 class GameController extends Controller
 {
@@ -14,6 +17,7 @@ class GameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         return view('game.index2');
@@ -46,7 +50,7 @@ class GameController extends Controller
         }
         else{
             Game::insert($datos);
-            User::where('id','=',$id_user)->update(['game_id' => $game_id]);
+            User::where('id','=',$id_user)->uwhere('id','=',$id_user)->update(['game_id' => $game_id]);
             
             return [$datos,$id_user,$game_id];
         }
@@ -55,28 +59,38 @@ class GameController extends Controller
 
     public function store2(Request $request)
     {
+        
         $id_user = auth()->user()->id;
         $datos = request()->except(['_token','_method']); 
         $game_id= $datos['id'];
+        
         $game = DB::table('games')->where('id', $game_id)->first();
+        
+        $count = $game->count;
+        
         if ($game) {
 
-            $user_check = DB::table('users')->where('game_id', $game_id)->first();
+            $user_check = DB::table('users')->where('id',$id_user)->where('game_id', $game_id)->first();
 
             if ($user_check) {
+                
                 return "Usted ya está en la partida";
             }
 
-            else{
-                $game = DB::table('games')->where('id', $game_id)->first();
-                $count = $game->count;
-                
+            else{               
+
                 if ($count < 4) 
                 {
                     $count = $count + 1;
                     User::where('id','=',$id_user)->update(['game_id' => $game_id]);
                     Game::where('id','=',$game_id)->update(['count' => $count]);
                     return "HA INGRESADO AL JUEGO";
+                    
+                }
+                if ($count == 4) {
+                    Card::where('id','!=',NULL)->update(['bug_id'=>NULL, 'user_id' =>NULL]);
+                    $cartas = barajar_cartas(); 
+                    return $cartas; 
                 }
                 else {
                     return redirect()->route('game.index')->with('mensaje','Esta sala está llena ');
@@ -132,4 +146,5 @@ class GameController extends Controller
     {
         //
     }
+    
 }
