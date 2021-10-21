@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/games', function () {
+    return view('layouts.plantilla.newgame');
+});
+
 Route::group( ['middleware'=>'auth'],function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
