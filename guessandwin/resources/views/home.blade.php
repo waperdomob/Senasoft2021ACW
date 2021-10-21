@@ -1,6 +1,11 @@
 @extends('layouts.plantilla.newgame')
-@section('content')
-  
+@section('componentes')
+
+
+    <div class="backgound">
+      <img class="d-block w-100" src="img/1.jpg" alt="First slide" heigth="100px" style="background-image:url()">
+    </div>
+
 <div class="container flex-center">
   <div class="row">
     <div class="col">
@@ -21,6 +26,6 @@
     </div>
   </div>
 </div>
-                   
+            
     @endsection
 

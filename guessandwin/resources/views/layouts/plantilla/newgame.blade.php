@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html lang="en">
 
 <head>
@@ -47,17 +46,20 @@
     </script>
 </head>
 
-<body class="dark-theme">
+<body class="dark-theme" >
     
    @include('layouts.componentes.sidebar')
-   
+
     <div    class="wrapper d-flex flex-column min-vh-100 bg-light dark:bg-transparent">
-   @include('layouts.componentes.navbar')
+
+    @include('layouts.componentes.navbar')
+
+
 
         
         <div class="body flex-grow-1 px-3">
             <div class="container-lg">
-               @yield('content')
+                @yield('componentes')
             </div>
         </div>
         
