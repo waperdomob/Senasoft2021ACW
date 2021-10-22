@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
     <link rel="stylesheet" href="vendors/simplebar/css/simplebar.css">
     <link rel="stylesheet" href="css/vendors/simplebar.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 
     <link href="{{ url('css/layoutcss/plantilla.css') }}" rel="stylesheet">
 
@@ -48,7 +51,6 @@
 
 <body class="dark-theme" >
     
-   @include('layouts.componentes.sidebar')
 
     <div    class="wrapper d-flex flex-column min-vh-100 bg-light dark:bg-transparent">
 

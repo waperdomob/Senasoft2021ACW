@@ -3,7 +3,6 @@
 @section('componentes')
 
 <!-- sidebar fijo  -->
-<h1>prueba</h1>
   <div class="row">
   
   <div class="col-sm-3">
@@ -45,6 +44,7 @@
                     <img src="img/policarpa.jpg" class="card-img-top" height="155px"   alt="...">
                     <div class="card-body">
                         <p class="card-text">nombre personaje modulo o erros</p>
+                        <h1 class="animate__animated animate__backInLeft">An animated element</h1>
                     </div>
                 </div>
             </div>
