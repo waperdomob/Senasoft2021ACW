@@ -23,6 +23,9 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('game_id')->nullable();
             $table->foreign('game_id')->references('id')->on('games');
 
+            $table->integer('position')->nullable();
+            $table->tinyInteger('turno')->nullable();
+
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();

@@ -21,9 +21,21 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
 Route::get('/games', function () {
-    return view('layouts.plantilla.newgame');
+    return view('cards.index');
 });
+Route::get('/turno', function () {
+    return view('cards.index2');
+});
+
+
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 
 Route::group( ['middleware'=>'auth'],function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
