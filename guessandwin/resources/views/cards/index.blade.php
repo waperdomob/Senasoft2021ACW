@@ -3,10 +3,10 @@
 @section('componentes')
 
 <!-- sidebar fijo  -->
-<h1>prueba</h1>
-  <div class="row">
+
+<div class="row">
   
-  <div class="col-sm-3">
+  <div class="col-sm-2">
             <table class="table">
         <thead>
             <tr>
@@ -14,73 +14,38 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-            
-            <td class="w-34"><img src="img/user.png" width="35px" hright="30px"  alt=""> Jacob</td> 
-            
+            @foreach ($players as $player)
+            <tr>               
+            <td class="w-34"><img src="img/user.png" width="35px" hright="30px"  alt="">           
+                {{$player -> name}}            
+            </td>             
             </tr>
-            <tr>
-            <td class="w-34"><img src="img/user.png" width="35px" hright="30px"  alt=""> Jacob</td> 
-            
-            
-            </tr>
-            <tr>
-                <td class="w-34"><img src="img/user.png" width="35px" hright="30px"  alt="">  Jacob </td> 
-            </tr>
-            <tr>
-            </tr>
+            @endforeach
+
         </tbody>
         </table>
-            <a href="#" class="btn btn-info">paso</a>
-            <a href="#" class="btn btn-danger">pregunto</a>
-            <a href="#" class="btn btn-warning">acuso</a>
+            @if ($turno == 1 )
+                @include('cards.option')
+            @endif
     </div>
    
-    <div class="col-sm-6">
+    <div class="col-sm-7">
 
-    
-        <div class="row mt-4">
-            <div class="col">
-            <div class="card " style="width: 15rem;">
-                    <img src="img/policarpa.jpg" class="card-img-top" height="155px"   alt="...">
-                    <div class="card-body">
-                        <p class="card-text">nombre personaje modulo o erros</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 15rem;">
-                        <img src="img/fina.jpg" class="card-img-top"height="155px" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">nombre personaje modulo o error</p>
+        <div class="row mt-2 ml-4">
+            @foreach ($cards as $card)                
+                    
+                        <div class="card ml-4" style="width: 10rem;">
+                            @if ($card->image)
+                            <img src="{{ asset('storage'.'/'.$card->image)}}" class="card-img-top" alt="..."  height="150">
+                        @endif
+                            <div class="card-body">
+                                <p class="card-text">{{ $card->name }}</p>
+                            </div>
                         </div>
-                </div>
-            </div>
-        </div>   
-        
-        <div class="row mt-4">
-            <div class="col">
-            <div class="card" style="width: 15rem;">
-                    <img src="img/mano.png" class="card-img-top" height="155px" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">nombre personaje modulo o erros</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 15rem;">
-                        <img src="img/err.jpg" class="card-img-top" height="155px" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">nombre personaje modulo o erros</p>
-                        </div>
-                </div>
-            </div>
-            
-            
-
-
-        </div>
+            @endforeach
+        </div>  
     </div>
+
     <div class="col-sm-3">
             <table class="table">
         <thead>

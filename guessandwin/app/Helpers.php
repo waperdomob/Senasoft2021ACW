@@ -108,4 +108,42 @@ function barajar_cartas()
         return $cards;
     }
 
+    function gestionarTurnos($id){
+       
+        $jugador = DB::table('users')->select('id','name','turno')->where('position', '=', $id)->first();
+
+        if ($jugador->turno == 1){
+            
+           return 1;
+        }
+        else {
+            return 0;
+        }
+        
+    }
+    function cambiarTurno($id){
+
+        User::where('id','=',$id)->update(['turno'=> 0]);
+
+        $id2 = $id+1;
+
+        if ($id2>4) {
+            $id2=1;
+            User::where('id','=',$id2)->update(['turno'=> 1]);
+            return 0;
+        }
+        else{
+            User::where('id','=',$id2)->update(['turno'=> 1]);
+            return 0;
+        }
+        
+    }
+
+    function traerJugadores(){
+
+        $players = DB::select('select name from users ');
+
+        return $players;
+
+    }
 ?>
