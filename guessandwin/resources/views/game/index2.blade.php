@@ -19,10 +19,7 @@
   <div class="row">
 
   <div class="col ">
-    <div>
-        <a class="btn btn-primary mt-4 " href="{{ route('home') }}">Regresar</a>
-    </div>
-
+    
     </div>
     <div class="col">
      </div>
@@ -37,7 +34,8 @@
           <input type="text" name="id" id="id" class="form-control mt-4" placeholder="H53DY" aria-describedby="helpId" required>
         </div>
 
-        <button type="submit" class="btn btn-warning mt-4">Enviar</button>
+        <a class="btn btn-primary mt-4" href="{{ route('home') }}" role="button">Regresar</a>
+        <button class="btn btn-warning mt-4" type="submit">Enviar</button>
     </form>
    
 

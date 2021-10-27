@@ -10,7 +10,8 @@
     <meta name="description" content="CoreUI - Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,SCSS,HTML,RWD,Dashboard">
-    <title>CoreUI Bootstrap Admin Template</title>
+    <title>Guess & Win</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
@@ -53,9 +54,6 @@
     <div    class="wrapper d-flex flex-column min-vh-100 bg-light dark:bg-transparent">
 
     @include('layouts.componentes.navbar')
-
-
-
         
         <div class="body flex-grow-1 px-3">
             <div class="container-lg">
@@ -97,6 +95,8 @@
             }
             document.body.dispatchEvent(event);
         }
+    
+       
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.js"></script>
@@ -108,9 +108,12 @@
 
     <script src="{{url('js/plantilla/coreui-utils.js')}}"></script>
     <script src="{{url('js/plantilla/colors.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
     </script>
+
+    
 </body>
 
 </html>

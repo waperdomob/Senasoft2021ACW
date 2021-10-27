@@ -93,8 +93,7 @@ function barajar_cartas()
                 foreach ($card as $key => $value) {
                     $dato = $value;
                     $update = Card::where('id','=',$dato)->update(['user_id' => $users[$i]]);
-                }
-                
+                }                
             }
         
         return $update;

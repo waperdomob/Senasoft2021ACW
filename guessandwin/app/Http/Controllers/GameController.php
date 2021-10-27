@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Bug;
 use App\Models\Card;
 use App\Models\Game;
 use App\Models\User;
@@ -57,9 +57,9 @@ class GameController extends Controller
         else{
 
             Game::insert($datos);
-            Game::where('id','=',$game_id)->update(['count' => 1,'position'=>1, 'turno'=>1]);
+            Game::where('id','=',$game_id)->update(['count' => 1]);
             
-            User::where('id','=',$id_user)->where('id','=',$id_user)->update(['game_id' => $game_id]);
+            User::where('id','=',$id_user)->update(['game_id' => $game_id,'position'=>1, 'turno'=>1]);
             
                 return redirect()->route('game.index')->with('mensaje','Espere mientras se completa el grupo');
         }
@@ -80,6 +80,7 @@ class GameController extends Controller
         if ($game) {
 
             $user_check = DB::table('users')->where('id',$id_user)->where('game_id', $game_id)->first();
+
             
             //se valida que el usuario ya se haya registrado al juego con aterioridad
             if ($user_check) {
@@ -89,14 +90,13 @@ class GameController extends Controller
                 if ($count == 4)
                 {//Se inicia la partida
 
-                   // Card::where('id','!=',NULL)->update(['bug_id'=>NULL, 'user_id' =>NULL]);
+                    
                     
                     $user = User::find($id_user);                               
                     $cards = Card::where('user_id',$id_user)->get();
 
                     $turno = gestionarTurnos($id_user);
                     $players = traerJugadores();
-
                     
                         return view('cards.index',['user'=>$user,'cards'=>$cards,'players'=>$players,'turno'=>$turno]);       
                          
@@ -110,32 +110,33 @@ class GameController extends Controller
             //se agrega al jugador a la partida
             else{               
                 $count = $game->count;
-
+                
                 if ($count < 4) 
                 {
                     $count = $count + 1;
-                    User::where('id','=',$id_user)->update(['game_id' => $game_id]);
-                    Game::where('id','=',$game_id)->update(['count' => $count,'position'=>$count]);                    
+
+                    User::where('id','=',$id_user)->update(['game_id' => $game_id,'position'=>$count]);
+                    Game::where('id','=',$game_id)->update(['count' => $count]);                    
                     
-                
+                    if ($count == 4)
+                    {
+                        //Se inicia la partida
+                        Card::where('id','!=',NULL)->update(['bug_id'=>NULL, 'user_id' =>NULL]);
+                        //DB::insert('insert into bugs (bug) values (?)', ['bug']);
+                        $user = User::find($id_user);
+                        barajar_cartas();                               
+                        $cards = Card::where('user_id',$id_user)->get();
+                        
+
+                        $turno = gestionarTurnos($id_user);
+                        $players = traerJugadores();                    
+                        return view('cards.index',['user'=>$user,'cards'=>$cards,'players'=>$players,'turno'=>$turno]);
+                    }
+
                     return redirect()->route('game.index')->with('mensaje','Espere mientras se completa el grupo');
                     
                 }
-                //Se inicia la partida
-                if ($count == 4) {
-
-                    Card::where('id','!=',NULL)->update(['bug_id'=>NULL, 'user_id' =>NULL]);
-                    barajar_cartas(); //se llama la funcion para barajar las cartas 
-
-                    $user = User::find($id_user);                               
-                    $cards = Card::where('user_id',$id_user)->get();
-                    $turno = gestionarTurnos($id_user);
-                    $players = traerJugadores();
-
-                    
-                        return view('cards.index',['user'=>$user,'cards'=>$cards,'players'=>$players,'turno'=>$turno]);                
-                                     
-                }
+                
                 //si el contador es mayor que 4 no se puede ingresar al juego
                 else {
                     return redirect()->route('game.index')->with('mensaje','Esta sala está llena ');

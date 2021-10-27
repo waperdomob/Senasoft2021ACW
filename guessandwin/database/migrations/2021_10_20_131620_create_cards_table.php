@@ -23,7 +23,7 @@ class CreateCardsTable extends Migration
             $table->foreign('bug_id')->references('id')->on('bugs');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('game_id')->nullable();
+            $table->string('game_id')->nullable();
             $table->foreign('game_id')->references('id')->on('games');
 
             $table->timestamps();
